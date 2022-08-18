@@ -1,0 +1,19 @@
+import random
+import mouse
+import random
+import time
+import keyboard
+import ctypes
+
+user32 = ctypes.windll.user32
+width,length = user32.GetSystemMetrics(0), user32.GetSystemMetrics(1)
+while True:
+    if keyboard.is_pressed("q"):
+        print('opt out ')
+        break
+    else:
+        left = random.randint(0,width)
+        right = random.randint(0,length)
+        duration = random.uniform(0,1)
+        mouse.move(left,right,absolute = True,duration = duration)
+        time.sleep(1)
